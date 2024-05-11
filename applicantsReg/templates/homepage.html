@@ -1,0 +1,46 @@
+
+{%extends 'base.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+
+{%block tittle%}
+<title>homepage</title>
+{%endblock%}
+
+{%block content%}
+<div class="row" style="background-image: linear-gradient(to right, #5B3716 , #D9CCC1); margin-top:0.2rem; height:110%;">
+  <div class="col-md-4">
+       <img class="rounded-circle animate__animated animate__bounceIn animate__delay-0.5s" style="background-color: white; width: 90%; margin-top: 2rem; margin-left: 5%; margin-bottom: 1rem;" src="{%static 'img/General_log_page-0001-removebg-preview.png'%}" alt="">
+  </div>
+  <div class="col-md-6" style="padding-left: 3rem;">
+       <a href="{%url 'register'%}" style=" text-decoration: none;" >
+        <div class="card animate__animated animate__fadeInLeftBig animate__delay-1s " style="height: 5rem; width: 90%; margin-top:5rem; background-color: #504033;">
+        <h2 style="color: white; text-align: center; margin-top: 1rem;">LIDEGE EDUCATION LINK</h2></div>
+       </a>
+       <a href="" style=" text-decoration: none;">
+        <div class="card animate__animated animate__fadeInRightBig animate__delay-1.5s " style="height: 5rem; width: 90%; margin-top: 1rem;background-color: #29221b;">
+        <h2 style="color: white; text-align: center; margin-top: 1rem;">LIDEGE MEDICAL TOURISM</h2></div>
+       </a>
+       <a href="" style="text-decoration: none;">
+        <div class="card bg-dark animate__animated animate__fadeInLeftBig animate__delay-2s" style="height: 5rem; width: 90%; margin-top: 1rem; margin-bottom: 4rem;">
+        <h2 style="color: white; text-align: center; margin-top: 1rem;">LIDEGE LOGISTICS</h2></div>
+       </a>
+  </div>
+
+  <div class="col-md-2 animate__animated animate__fadeInRightBig animate__delay-2.5s" style="background-color:#9c8a79 ">
+     <div class="card mt-2" style="width:100%; background-color:#29221b5d;">
+        <div class="card-header ">
+            <img style="width: 100%; height: 100%; background-color: #9c8a79;" src="{%static 'img/student1.png'%}" alt="">
+        </div>
+        <div class="card-body">
+            <p style="text-align:start;">Lorem, ipsum dolor sit amet consectetur adipisicing elit </p>
+        </div>
+        
+    </div>
+  </div>
+</div>
+<div class="row" style="background-image: linear-gradient(to right, #D9CCC1 ,#5B3716); height: 10rem;">
+
+</div>
+
+{%endblock%}

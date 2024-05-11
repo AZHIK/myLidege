@@ -1,0 +1,88 @@
+{%extends 'base4.html'%}
+{%load static%}
+{%load crispy_forms_tags%}
+
+{%block content%}
+ <div class="row" style="padding-top: 2rem; background-color:#f1e7dd27 ;">
+   <div class="col-md-3">
+
+
+   </div>
+   <div class="col-md-8" style="height: auto;">
+    <div class="card mt-3" style="padding: 2rem;  background-color:#b3967c2d ">
+      {% if applicantDetails.profile_image %}
+        <img class="rounded-circle" style="width:16%; margin-left:42%; margin-top: 2rem;" 
+        src="{{applicantDetails.profile_image.url}}" alt="">
+      {%else%}
+      <img class="rounded-circle" style="width:16%; margin-left:42%; margin-top: 2rem;" 
+      src="{%static 'img/avatar.jpg'%}" alt="">
+      {% endif %}
+
+        <h6 style="text-align: center;"><strong>{{applicantDetails.firstname}} {{applicantDetails.last_name}}</strong></h6>
+                 <h6 style="text-align: center; margin-bottom: 2rem;">{{applicantDetails.user.email}}</h6>
+        {%if addmitted.country_selected%}
+        <table class="table table-striped table-bordered">
+            <tbody>
+              <tr>
+                <th scope="row">Country Addmmitted</th>
+                <td>{{addmitted.country_selected}}</td>
+              </tr>
+              <tr>
+                <th scope="row">University Addmmitted</th>
+                <td>{{addmitted.addmitted_university}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Programme Allocatted</th>
+                <td>{{addmitted.allocated_progrramme}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Tution Payment</th>
+                <td>
+                    {%if addmitted.tuition_fees_payment_reciept %}
+                    <a href="{{addmitted.tuition_fees_payment_reciept.url}}" class="btn btn-warning" style="width: 40%; margin-left: 30%;">VIEW RECIEPT</a>
+                    {%endif%}
+                </td>  
+              </tr>
+
+              <tr>
+                <th scope="row">Hostel Fees Payment</th>
+                <td>
+                    {%if addmitted.tuition_fees_payment_reciept %}
+                    <a href="{{addmitted.hostel_fees_payment_reciept.url}}" class="btn btn-warning" style="width: 40%; margin-left: 30%;">VIEW RECIEPT</a>
+                    {%endif%}
+                </td>
+              </tr>
+
+              <tr>
+                {%if user.is_superuser%}
+                  {%if addmitted.addmission_approval == "Approved"%}
+                  <td colspan="2"><button class="btn btn-success" style="width: 40%; margin-left: 30%;">Addmission Approved</button></td>
+                  {%elif addmitted.addmission_approval == "Rejected" %}
+                  <td colspan="2"><button class="btn btn-danger" href="#" style="width: 40%; margin-left: 30%;">Addmission Rejected</button></td>
+                  {%else%}
+                  <td colspan="2">
+                    <a class="btn btn-warning" href="{%url 'approve' addmitted.user.id%}" style="width: 40%; margin-left: 30%; margin-bottom: 1rem;">Approve</a>
+
+                  <a class="btn btn-danger" href="{%url 'reject' addmitted.user.id%}" style="width: 40%; margin-left: 30%;">Reject</a>
+                </td>
+                  {%endif%}
+                  </a>
+                {%endif%}
+              </tr>
+            </tbody>
+          </table>
+
+          {%else%}
+          <h6 style="margin-top: 2rem; margin-bottom: 3rem; color: orange; text-align: center;">pending..........<strong></strong></h6>
+          {%endif%}
+            
+                 
+    </div>
+   </div>
+
+   <div class="col-md-1">
+
+
+   </div>
+ </div>
+{%endblock%}
