@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 from pathlib import Path
-# import dj_database_url
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
-# DATABASE_URL = "postgresql://postgres:ynnywtwnvYEAIYwMBOYhoRXZxIeadyAx@viaduct.proxy.rlwy.net:49976/railway"
+DATABASE_URL = "postgresql://postgres:yHVaoQJUPGnQjLSAiUhDNDSwTsVOoHrH@roundhouse.proxy.rlwy.net:49151/railway"
 
 ROOT_URLCONF = 'myLidege.urls'
 
@@ -81,8 +81,8 @@ WSGI_APPLICATION = 'myLidege.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     #  'default':dj_database_url.config(default = DATABASE_URL, conn_max_age = 1800),
+ DATABASES = {
+      'default':dj_database_url.config(default = DATABASE_URL, conn_max_age = 1800),
 #      {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'railway',
@@ -91,14 +91,14 @@ WSGI_APPLICATION = 'myLidege.wsgi.application'
 #         'HOST': 'viaduct.proxy.rlwy.net',  
 #         'PORT': '49976', 
 #     }
-# }
+ }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 
@@ -141,7 +141,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets') 
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 # Media Files
 MEDIA_URL = '/media/'
