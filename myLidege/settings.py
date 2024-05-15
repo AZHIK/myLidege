@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware', 
 ]
 
-DATABASE_URL = "postgresql://postgres:yHVaoQJUPGnQjLSAiUhDNDSwTsVOoHrH@roundhouse.proxy.rlwy.net:49151/railway"
+DATABASE_URL = "postgresql://postgres:VadUreguwycaSFLvkvBPGCfJvZkfJWWq@monorail.proxy.rlwy.net:22400/railway"
 
 ROOT_URLCONF = 'myLidege.urls'
 
