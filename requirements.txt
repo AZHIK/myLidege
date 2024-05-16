@@ -18,6 +18,8 @@ odfpy==1.4.1
 openpyxl==3.1.2
 packaging==24.0
 pillow==10.2.0
+psycopg2==2.9.9
+psycopg2-binary==2.9.9
 pycountry==23.12.11
 PyYAML==6.0.1
 requests==2.31.0
